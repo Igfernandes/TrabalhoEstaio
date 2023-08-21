@@ -6,13 +6,21 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  Button,
+  Alert,
   View,
 } from "react-native";
 
 export default function App() {
+  const introductions = () => {
+    Alert.alert(
+      "Todos os campos deverão sem preenchidos sem espaços desnecessário, uso de números inexistentes e outras considerações."
+    );
+  };
+
   return (
-    <SafeAreaView>
-      <StatusBar  backgroundColor="#61dafb">
+    <SafeAreaView style={styles.container}>
+      <StatusBar >
         <View>
           <Text style={styles.title}>Empresa XPTO</Text>
         </View>
@@ -27,6 +35,9 @@ export default function App() {
           >
             Cadastramento de Clientes
           </Text>
+        </View>
+        <View>
+          <Button title="Exiba as instruções: " onPress={introductions}/>
         </View>
         <View style={styles.formGroup}>
           <Text>Matricula</Text>
@@ -108,12 +119,19 @@ const logo = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff"
+  },  
   title: {
     textAlign: "center",
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  button: {
+    backgroundColor: "rgb(33, 150, 243)",
+    color: "#fff"
   },
   img: {
     alignSelf: "center",
